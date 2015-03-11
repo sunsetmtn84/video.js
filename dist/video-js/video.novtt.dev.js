@@ -1314,7 +1314,6 @@ vjs.createTimeRange = function(start, end){
  * @private
  */
 vjs.setLocalStorage = function(key, value){
-  return;
   /* Removing local storage so we may use FuiszVideo on DoubleClick. TODO: re-enable if we know the project's format allows LocalStorage.
   try {
     // IE was throwing errors referencing the var anywhere without this
@@ -4546,7 +4545,7 @@ vjs.Player.prototype.volume = function(percentAsDecimal){
     vol = Math.max(0, Math.min(1, parseFloat(percentAsDecimal))); // Force value to between 0 and 1
     this.cache_.volume = vol;
     this.techCall('setVolume', vol);
-    vjs.setLocalStorage('volume', vol);
+    // vjs.setLocalStorage('volume', vol);
     return this;
   }
 
@@ -5292,7 +5291,7 @@ vjs.Player.prototype.listenForUserActivity = function(){
 };
 
 /**
- * Gets or sets the current playback rate.  A playback rate of 
+ * Gets or sets the current playback rate.  A playback rate of
  * 1.0 represents normal speed and 0.5 would indicate half-speed
  * playback, for instance.
  * @param  {Number} rate    New playback rate to set.
@@ -9518,9 +9517,9 @@ vjs.ChaptersTrackMenuItem.prototype.update = function(){
 
   vjs.TextTrackSettings.prototype.restoreSettings = function() {
     var values;
-    try {
-      values = JSON.parse(window.localStorage.getItem('vjs-text-track-settings'));
-    } catch (e) {}
+    // try {
+    //   values = JSON.parse(window.localStorage.getItem('vjs-text-track-settings'));
+    // } catch (e) {}
 
     if (values) {
       this.setValues(values);
@@ -9535,6 +9534,7 @@ vjs.ChaptersTrackMenuItem.prototype.update = function(){
     }
 
     values = this.getValues();
+    /*
     try {
       if (!vjs.isEmpty(values)) {
         window.localStorage.setItem('vjs-text-track-settings', JSON.stringify(values));
@@ -9542,6 +9542,7 @@ vjs.ChaptersTrackMenuItem.prototype.update = function(){
         window.localStorage.removeItem('vjs-text-track-settings');
       }
     } catch (e) {}
+    */
   };
 
   vjs.TextTrackSettings.prototype.updateDisplay = function() {
