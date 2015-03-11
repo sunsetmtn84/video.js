@@ -852,7 +852,7 @@ vjs.Player.prototype.volume = function(percentAsDecimal){
     vol = Math.max(0, Math.min(1, parseFloat(percentAsDecimal))); // Force value to between 0 and 1
     this.cache_.volume = vol;
     this.techCall('setVolume', vol);
-    vjs.setLocalStorage('volume', vol);
+    // vjs.setLocalStorage('volume', vol);
     return this;
   }
 
@@ -1598,7 +1598,7 @@ vjs.Player.prototype.listenForUserActivity = function(){
 };
 
 /**
- * Gets or sets the current playback rate.  A playback rate of 
+ * Gets or sets the current playback rate.  A playback rate of
  * 1.0 represents normal speed and 0.5 would indicate half-speed
  * playback, for instance.
  * @param  {Number} rate    New playback rate to set.

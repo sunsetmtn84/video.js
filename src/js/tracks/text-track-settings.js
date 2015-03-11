@@ -104,9 +104,9 @@
 
   vjs.TextTrackSettings.prototype.restoreSettings = function() {
     var values;
-    try {
-      values = JSON.parse(window.localStorage.getItem('vjs-text-track-settings'));
-    } catch (e) {}
+    // try {
+    //   values = JSON.parse(window.localStorage.getItem('vjs-text-track-settings'));
+    // } catch (e) {}
 
     if (values) {
       this.setValues(values);
@@ -121,6 +121,7 @@
     }
 
     values = this.getValues();
+    /*
     try {
       if (!vjs.isEmpty(values)) {
         window.localStorage.setItem('vjs-text-track-settings', JSON.stringify(values));
@@ -128,6 +129,7 @@
         window.localStorage.removeItem('vjs-text-track-settings');
       }
     } catch (e) {}
+    */
   };
 
   vjs.TextTrackSettings.prototype.updateDisplay = function() {
