@@ -629,6 +629,8 @@ vjs.createTimeRange = function(start, end){
  * @private
  */
 vjs.setLocalStorage = function(key, value){
+  return;
+  /* Removing local storage so we may use FuiszVideo on DoubleClick. TODO: re-enable if we know the project's format allows LocalStorage.
   try {
     // IE was throwing errors referencing the var anywhere without this
     var localStorage = window.localStorage || false;
@@ -645,6 +647,7 @@ vjs.setLocalStorage = function(key, value){
       }
     }
   }
+  */
 };
 
 /**
