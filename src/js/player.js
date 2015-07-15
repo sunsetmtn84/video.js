@@ -969,7 +969,7 @@ vjs.Player.prototype.requestFullscreen = function(){
       this.trigger('fullscreenchange');
     }));
 
-    this.el_[fsApi.requestFullscreen]();
+    document.getElementsByTagName('body')[0][fsApi.requestFullscreen]();
 
   } else if (this.tech.supportsFullScreen()) {
     // we can't take the video.js controls fullscreen but we can go fullscreen
