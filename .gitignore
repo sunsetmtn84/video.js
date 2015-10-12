@@ -1,5 +1,6 @@
 .DS_Store
 build/files/*
+build/temp/*
 docs/api/*
 dev.html
 projects
@@ -21,3 +22,9 @@ sandbox/*
 
 *results.xml
 *.log
+
+test/coverage/*
+.coveralls.yml
+.sass-cache
+
+dist/*
