@@ -75,7 +75,8 @@ vjs.MediaTechController.prototype.initControlsListeners = function(){
   // listeners to
   this.ready(activateControls);
   this.on(player, 'controlsenabled', activateControls);
-  this.on(player, 'controlsdisabled', this.removeControlsListeners);
+  // AK: want to retain tap/click to play/pause when controls are disabled.
+  // this.on(player, 'controlsdisabled', this.removeControlsListeners);
 
   // if we're loading the playback object after it has started loading or playing the
   // video (often with autoplay on) then the loadstart event has already fired and we
@@ -165,7 +166,15 @@ vjs.MediaTechController.prototype.onClick = function(event){
  * activity state, which hides and shows the controls.
  */
 vjs.MediaTechController.prototype.onTap = function(){
-  this.player().userActive(!this.player().userActive());
+  if (!this.player().controls()) {
+    if (this.player().paused()) {
+      this.player().play();
+    } else {
+      this.player().pause();
+    }
+  } else {
+    this.player().userActive(!this.player().userActive());
+  }
 };
 
 /* Fallbacks for unsupported event types
