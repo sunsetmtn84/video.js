@@ -11014,7 +11014,8 @@ var Player = (function (_Component) {
         this.trigger('fullscreenchange');
       }));
 
-      this.el_[fsApi.requestFullscreen]();
+      // this.el_[fsApi.requestFullscreen]();
+      _globalDocument2['default'].getElementsByTagName('body')[0][fsApi.requestFullscreen]();
     } else if (this.tech_.supportsFullScreen()) {
       // we can't take the video.js controls fullscreen but we can go fullscreen
       // with native controls

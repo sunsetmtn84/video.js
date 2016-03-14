@@ -1487,7 +1487,6 @@ class Player extends Component {
     return (isNaN(vol)) ? 1 : vol;
   }
 
-
   /**
    * Get the current muted state, or turn mute on or off
    * ```js
@@ -1587,7 +1586,8 @@ class Player extends Component {
         this.trigger('fullscreenchange');
       }));
 
-      this.el_[fsApi.requestFullscreen]();
+      // this.el_[fsApi.requestFullscreen]();
+      document.getElementsByTagName('body')[0][fsApi.requestFullscreen]();
 
     } else if (this.tech_.supportsFullScreen()) {
       // we can't take the video.js controls fullscreen but we can go fullscreen
